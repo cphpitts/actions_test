@@ -16,7 +16,9 @@ jobs:
                         - name: report_results
                           id: report_results
                           uses: mschick/add-pr-comment@v2
+                          env:
+                                  GITHUB_TOKEN: ${{ secrets.TEST }}
+
                           with:
                                   message: |
                                           ** Hello World **
-                                  GITHUB_TOKEN: ${{ secrets.TEST }}
