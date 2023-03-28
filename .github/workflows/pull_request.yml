@@ -7,5 +7,5 @@ on:
 jobs:
         pr_check:
                 name: Pull Request Checks
-                uses: ./.github/workflows/integration.yml
+                uses: ./.github/workflows/integrations.yml
 
