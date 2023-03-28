@@ -10,15 +10,14 @@ on:
 jobs:
         report-results:
                 runs-on: ubuntu-latest
+                env:
+                          GITHUB_TOKEN: ${{ secrets.TEST }}
                 permissions:
                         pull-requests: write
                 steps:
                         - name: report_results
                           id: report_results
                           uses: mschick/add-pr-comment@v2
-                          env:
-                                  GITHUB_TOKEN: ${{ secrets.TEST }}
-
                           with:
                                   message: |
                                           ** Hello World **
