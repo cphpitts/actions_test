@@ -1,0 +1,21 @@
+name: Integration
+
+on:
+        workflow_call:
+                inputs:
+                        environment_name:
+                                required: false
+                                type: string
+
+jobs:
+        report-results:
+                runs-on: ubuntu-latest
+                permissions:
+                        pull-requests: write
+                steps:
+                        - name: report_results
+                          id: report_results
+                          uses: mschick/add-pr-comment@v2
+                          with:
+                                  message: |
+                                          ** Hello World **
