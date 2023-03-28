@@ -19,3 +19,4 @@ jobs:
                           with:
                                   message: |
                                           ** Hello World **
+                                  GITHUB_TOKEN: ${{ secrets.TEST }}
