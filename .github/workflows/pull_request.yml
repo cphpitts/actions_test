@@ -1,7 +1,7 @@
 name: Test Workflow
 
 on:
-        pull_requst:
+        pull_request:
                 types: [opened, edited, synchronize, reopened]
      
 jobs:
