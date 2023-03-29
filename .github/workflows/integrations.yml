@@ -30,10 +30,15 @@ jobs:
                           id: install_dependencies
                           run: pipenv install
 
+                        # - name: Run PyLint
+                        #   id: pylint
+                        #   run: pipenv run pylint app.py --output-format=text:pylint_results.txt,colorized
+
                         - name: Run PyLint
                           id: pylint
-                          run: pipenv run pylint app.py | grep "Your code" | tail n -1 >> $$PYLINT_RES
-
+                          run: |
+                                PYLINT_RES=$(pylint app.py)
+                                echo "MESSAGE=$PYLINT_RES" >> $GITHUB_ENV
 
                         - name: Comment PR
                           uses: thollander/actions-comment-pull-request@v1
