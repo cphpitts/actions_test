@@ -47,5 +47,5 @@ jobs:
                           uses: thollander/actions-comment-pull-request@v1
                           with:
                                 message: |
-                                        ${{ env.PYLINT_RES }}
+                                        ${{ env.MESSAGE }}
                                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
