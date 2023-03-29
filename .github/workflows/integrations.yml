@@ -17,6 +17,11 @@ jobs:
                         - name: Checkout
                           uses: actions/checkout/@v3
 
+                        - name: Check python
+                          id: check_python
+                          run: python --version
+
+
                         - name: Install Pipenv
                           id: install_pipenv
                           run: pip install pipenv
