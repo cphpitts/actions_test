@@ -37,7 +37,7 @@ jobs:
                         - name: Run PyLint
                           id: pylint
                           run: |
-                                PYLINT_RES=$(pipenv pylint app.py)
+                                PYLINT_RES=$(pipenv run pylint app.py)
                                 echo "MESSAGE=$PYLINT_RES" >> $GITHUB_ENV
 
                         - name: Comment PR
