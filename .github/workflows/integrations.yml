@@ -12,7 +12,7 @@ jobs:
                 permissions: 
                         pull-requests: write
                 runs-on: ubuntu-latest
-                name: example
+                name: examples
                 steps:
                         - name: Checkout
                           uses: actions/checkout/@v3
