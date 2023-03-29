@@ -7,5 +7,7 @@ on:
 jobs:
         pr_check:
                 name: Pull Request Checks
+                permissions: 
+                        pull-requests: write
                 uses: ./.github/workflows/integrations.yml
 
