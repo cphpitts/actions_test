@@ -22,4 +22,4 @@ jobs:
                           with:
                                 message: |
                                         Hello World
-                                GITHUB_TOKEN: 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
+                                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
