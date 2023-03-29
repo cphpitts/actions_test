@@ -39,7 +39,7 @@ jobs:
                           run: |
                                 PYLINT_RES=$(pipenv run pylint app.py)
                                 echo "$PYLINT_RES"
-                                PYLINT_RES=$(echo $PYLINT_RES | tail -1)
+                                # PYLINT_RES=$(echo $PYLINT_RES | tail -1)
                                 echo "$PYLINT_RES"
                                 echo "MESSAGE=$PYLINT_RES" >> $GITHUB_ENV
 
