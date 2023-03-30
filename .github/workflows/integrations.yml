@@ -40,8 +40,9 @@ jobs:
                                 PYLINT_RES=$(pipenv run pylint app.py)
                                 echo "$PYLINT_RES"
                                 # PYLINT_RES=$(echo $PYLINT_RES | tail -1)
+                                MESSAGE="MESSAGE=$PYLINT_RES"
                                 echo "$PYLINT_RES"
-                                echo 'MESSAGE=$PYLINT_RES' >> $GITHUB_ENV
+                                echo "$MESSAGE" >> $GITHUB_ENV
 
                         - name: Comment PR
                           uses: thollander/actions-comment-pull-request@v1
