@@ -38,7 +38,7 @@ jobs:
                         - name: Run PyLint
                           id: pylint
                           run: |
-                                PYLINT_RES=$(pipenv run pylint --failunder=1 app.py)
+                                PYLINT_RES=$(pipenv run pylint --fail-under=1 app.py)
                                 echo "$PYLINT_RES"
                                 # PYLINT_RES=$(echo $PYLINT_RES | tail -1)
                                 MESSAGE="MESSAGE=$PYLINT_RES"
