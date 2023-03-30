@@ -1,0 +1,58 @@
+name: Integration
+
+on:
+        workflow_call:
+                inputs:
+                        environment_name:
+                                required: false
+                                type: string
+
+jobs:
+        report-results:
+                permissions: 
+                        pull-requests: write
+                runs-on: ubuntu-latest
+                name: example
+                steps:
+                        - name: Checkout
+                          uses: actions/checkout/@v3
+
+                        - name: Check python
+                          id: check_python
+                          run: python --version
+
+
+                        - name: Install Pipenv
+                          id: install_pipenv
+                          run: pip install pipenv
+
+                        - name: Install Dependencies
+                          id: install_dependencies
+                          run: pipenv install
+
+                        # - name: Run PyLint
+                        #   id: pylint
+                        #   run: pipenv run pylint app.py --output-format=text:pylint_results.txt,colorized
+
+
+                        - name: Run PyLint
+                          id: pylint
+                          run: |
+                                PYLINT_RES=$(pipenv run pylint --fail-under=1 app.py)
+                                EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+                                echo "$PYLINT_RES"
+                                # PYLINT_RES=$(echo $PYLINT_RES | tail -1)
+                                # MESSAGE="MESSAGE=$PYLINT_RES"
+                                echo "$PYLINT_RES"
+                                echo "MESSAGE<<$EOF" >> $GITHUB_ENV
+                                echo "$PYLINT_RES" >> $GITHUB_ENV
+                                echo $GITHUB_ENV
+                                echo "$EOF" >> $GITHUB_ENV
+                                echo $GITHUB_ENV
+
+                        - name: Comment PR
+                          uses: thollander/actions-comment-pull-request@v1
+                          with:
+                                message: |
+                                        ${{ env.MESSAGE }}
+                                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
