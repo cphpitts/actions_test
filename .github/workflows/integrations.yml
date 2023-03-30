@@ -46,7 +46,7 @@ jobs:
                                 echo "$PYLINT_RES"
                                 echo "MESSAGE<<$EOF" >> $GITHUB_ENV
                                 $(pipenv run pylint --fail-under=1 app.py) >> $GITHUB_ENV
-                                ehco "$EOF" >> $GITHUB_ENV
+                                echo "$EOF" >> $GITHUB_ENV
 
                         - name: Comment PR
                           uses: thollander/actions-comment-pull-request@v1
