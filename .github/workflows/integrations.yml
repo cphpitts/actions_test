@@ -39,11 +39,12 @@ jobs:
                           id: pylint
                           run: |
                                 PYLINT_RES=$(pipenv run pylint --fail-under=1 app.py)
+                                EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
                                 echo "$PYLINT_RES"
                                 # PYLINT_RES=$(echo $PYLINT_RES | tail -1)
-                                MESSAGE="MESSAGE=$PYLINT_RES"
+                                # MESSAGE="MESSAGE=$PYLINT_RES"
                                 echo "$PYLINT_RES"
-                                # echo "$MESSAGE" >> $GITHUB_ENV
+                                # echo "MESSAGE=$PYLINT_RES<<$EOF" >> $GITHUB_ENV
 
                         - name: Comment PR
                           uses: thollander/actions-comment-pull-request@v1
