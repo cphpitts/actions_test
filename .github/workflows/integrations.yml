@@ -34,11 +34,11 @@ jobs:
                         #   id: pylint
                         #   run: pipenv run pylint app.py --output-format=text:pylint_results.txt,colorized
 
-                        
+
                         - name: Run PyLint
                           id: pylint
                           run: |
-                                PYLINT_RES=$(pipenv run pylint app.py)
+                                PYLINT_RES=$(pipenv run pylint --failunder=1 app.py)
                                 echo "$PYLINT_RES"
                                 # PYLINT_RES=$(echo $PYLINT_RES | tail -1)
                                 MESSAGE="MESSAGE=$PYLINT_RES"
