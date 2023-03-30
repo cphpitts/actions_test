@@ -41,7 +41,7 @@ jobs:
                                 echo "$PYLINT_RES"
                                 # PYLINT_RES=$(echo $PYLINT_RES | tail -1)
                                 echo "$PYLINT_RES"
-                                echo "MESSAGE=$PYLINT_RES" >> $GITHUB_ENV
+                                echo "MESSAGE='$PYLINT_RES'" >> $GITHUB_ENV
 
                         - name: Comment PR
                           uses: thollander/actions-comment-pull-request@v1
