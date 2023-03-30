@@ -34,6 +34,7 @@ jobs:
                         #   id: pylint
                         #   run: pipenv run pylint app.py --output-format=text:pylint_results.txt,colorized
 
+                        
                         - name: Run PyLint
                           id: pylint
                           run: |
